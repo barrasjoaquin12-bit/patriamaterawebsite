@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+<html lang="es-AR" class="scroll-smooth">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>PATRIA MATERA | Mates y Accesorios con Tradición Argentina</title>
+  <meta name="description" content="Descubrí mates, bombillas, termos y combos materos pensados para acompañar cada momento. Tradición argentina, calidad garantizada y atención personalizada." />
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,500;0,600;0,700;1,500&family=Plus+Jakarta+Sans:wght@400;500;600;700&display=swap" rel="stylesheet" />
+  <script src="https://cdn.tailwindcss.com"></script>
+  <script>
+    tailwind.config = {
+      theme: {
+        extend: {
+          colors: {
+            crema: { 50: '#FDFBF7', 100: '#F7F3EB', 200: '#EFE7D8' },
+            beige: { 100: '#EAE2D6', 200: '#DDD0BE', 300: '#CBB89D' },
+            marron: { 500: '#7A5843', 600: '#5C3D2E', 700: '#4A3222', 800: '#352216' },
+            oliva: { 500: '#63783D', 600: '#556B2F', 700: '#425424' }
+          },
+          fontFamily: {
+            serif: ['"Cormorant Garamond"', 'Georgia', 'serif'],
+            sans: ['"Plus Jakarta Sans"', 'system-ui', 'sans-serif']
+          }
+        }
+      }
+    }
+  </script>
+  <script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2"></script>
+</head>
+<body class="font-sans antialiased bg-crema-100 text-marron-800 selection:bg-oliva-600 selection:text-crema-50">
+
+  <!-- Banner de aviso si todavía falta pegar las credenciales de Supabase -->
+  <div id="setup-banner" class="hidden bg-marron-800 text-crema-50 text-xs sm:text-sm py-2.5 px-4 text-center">
+    Falta conectar tu base de datos: abrí este archivo <code>index.html</code> y pegá tu <strong>SUPABASE_URL</strong> y <strong>SUPABASE_ANON_KEY</strong> en la configuración del script.
+  </div>
+
+  <!-- HEADER -->
+  <header class="sticky top-0 z-40 bg-crema-50/95 backdrop-blur-md border-b border-beige-200">
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 h-20 flex items-center justify-between">
+      <a href="#inicio" class="flex items-center gap-3 group">
+        <div id="header-logo-container"></div>
+        <span class="font-serif text-xl sm:text-2xl font-semibold tracking-wide text-marron-800 group-hover:text-oliva-600 transition-colors">
+          PATRIA MATERA
+        </span>
+      </a>
+
+      <nav class="hidden md:flex items-center gap-7 text-sm font-medium text-marron-700">
+        <a href="#inicio" class="hover:text-oliva-600 transition">Inicio</a>
+        <a href="#promociones" class="hover:text-oliva-600 transition">Promociones</a>
+        <a href="#catalogo" class="hover:text-oliva-600 transition">Tienda</a>
+        <a href="#historia" class="hover:text-oliva-600 transition">Nuestra Historia</a>
+        <a href="#contacto" class="hover:text-oliva-600 transition">Contacto</a>
+      </nav>
+
+      <div class="flex items-center gap-2.5">
+        <button onclick="openAdminModal()" class="hidden sm:inline-flex items-center gap-1.5 text-xs font-medium text-marron-600 hover:text-marron-800 px-3 py-1.5 rounded-full border border-beige-200 hover:bg-beige-100 transition">
+          <svg class="w-3.5 h-3.5" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><rect x="3" y="11" width="18" height="11" rx="2"/><path d="M7 11V7a5 5 0 0 1 10 0v4"/></svg>
+          Admin
+        </button>
+
+        <button onclick="openCart()" class="relative inline-flex items-center gap-2 px-4 py-2.5 rounded-full bg-marron-700 text-crema-50 hover:bg-marron-800 transition shadow-sm text-sm font-medium">
+          <svg class="w-4 h-4" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><path d="M6 2L3 6v14a2 2 0 0 0 2 2h14a2 2 0 0 0 2-2V6l-3-4z"/><line x1="3" y1="6" x2="21" y2="6"/><path d="M16 10a4 4 0 0 1-8 0"/></svg>
+          <span class="hidden sm:inline">Carrito</span>
+          <span id="cart-badge" class="hidden min-w-[20px] h-5 px-1.5 r
